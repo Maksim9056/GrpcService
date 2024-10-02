@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+	<ItemGroup>
+		<Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorGrpcClient.Client\BlazorGrpcClient.Client.csproj" />
+    <PackageReference Include="Google.Protobuf" Version="3.28.2" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.66.0" />
+    <PackageReference Include="Grpc.Net.Client.Web" Version="2.66.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.66.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.66.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@inject Greeter.GreeterClient GrpcClient
+
+<button @onclick="SayHello">Say Hello</button>
+<p>@responseMessage</p>
+
+@code {
+    private string responseMessage = "";
+
+    private async Task SayHello()
+    {
+        try
+        {
+
+
+            var reply = await GrpcClient.SayHelloAsync(new HelloRequest { Name = "Blazor User" });
+            responseMessage = reply.Message;
+        }
+        catch(Exception)
+        {
+            
+        }
+    }
+}
