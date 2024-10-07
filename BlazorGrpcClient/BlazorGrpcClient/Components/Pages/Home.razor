@@ -1,26 +1,59 @@
 ﻿@page "/"
+@inject HttpClient Http
 @rendermode InteractiveServer
 
 @inject Greeter.GreeterClient GrpcClient
+<button @onclick="SayHelloREST">Say Hello Rest API</button>
+<p>@responseMessageRestapi</p>
+<button @onclick="SayHelloGrpc">Say Hello Grpc</button>
+<p>@responseMessageGrpc</p>
 
-<button @onclick="SayHello">Say Hello</button>
-<p>@responseMessage</p>
 
 @code {
-    private string responseMessage = "";
+    private string responseMessageRestapi = "";
+    private string responseMessageGrpc = "";
 
-    private async Task SayHello()
+    private async Task SayHelloGrpc()
     {
         try
         {
 
 
-            var reply = await GrpcClient.SayHelloAsync(new HelloRequest { Name = "Blazor User" });
-            responseMessage = reply.Message;
+            var reply = await GrpcClient.SayHelloAsync(new HelloRequest { Name = "Blazor User Grpc" });
+            responseMessageGrpc = reply.Message;
         }
         catch(Exception)
         {
-            
+
+        }
+    }
+
+    private async Task SayHelloREST()
+    {
+        try
+        {
+            string rest = "Blazor User REST";
+
+            // var answer = await Http.PostAsJsonAsync<string>($"https://localhost:7203/REST/REST?systemAccount={rest}", rest);
+            var answer = await Http.PostAsJsonAsync<string>($"https://localhost:7203/REST/REST", rest);
+
+            // Проверяем, успешен ли ответ
+            if (answer.IsSuccessStatusCode)
+            {
+                // Читаем содержимое ответа как строку
+                responseMessageRestapi = await answer.Content.ReadAsStringAsync();
+                
+            }
+            else
+            {
+                // Обрабатываем ошибку, если ответ неуспешен
+                throw new Exception($"Ошибка: {rest +answer.StatusCode}");
+            }
+
+        }
+        catch (Exception)
+        {
+
         }
     }
 }

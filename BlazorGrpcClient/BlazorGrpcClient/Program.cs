@@ -15,10 +15,12 @@ namespace BlazorGrpcClient
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
+            builder.Services.AddHttpClient();
+
             builder.Services.AddScoped(services =>
             {
                 var httpClientHandler = new GrpcWebHandler(GrpcWebMode.GrpcWebText, new HttpClientHandler());
-                var grpcChannel = GrpcChannel.ForAddress("https://localhost:7034/", new GrpcChannelOptions { HttpHandler = httpClientHandler });
+                var grpcChannel = GrpcChannel.ForAddress("http://localhost:5000/", new GrpcChannelOptions { HttpHandler = httpClientHandler });
                 return new Greeter.GreeterClient(grpcChannel); // Убедитесь, что GreeterClient правильно сгенерирован
                 
             });
