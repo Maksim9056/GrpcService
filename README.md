@@ -16,7 +16,7 @@ dotnet add package Grpc.Tools
 </br>
 
 
-2. REST API Сервис запускаем
+# 2. REST API Сервис запускаем
 
 
 <br>
@@ -28,7 +28,7 @@ dotnet add package Grpc.Tools
 <img src='https://github.com/user-attachments/assets/ea4225bf-5a9e-4dae-bf8d-bdb7d8ee134a' width="450" />
 </br>
 
-3.  Сайт на Blazor
+# 3.  Сайт на Blazor
 
 <br>
 <img src='https://github.com/user-attachments/assets/fa562713-38c4-46e6-b1f0-9ae85360eb34' width="450" />
@@ -38,7 +38,7 @@ dotnet add package Grpc.Tools
 <img src='https://github.com/user-attachments/assets/7f8f0317-cdb3-4b2f-9d7b-e637ab74114d' width="450" />
 </br>
 
-4.Результат
+# 4.Результат
 
 <br>
 <img src='https://github.com/user-attachments/assets/039759dc-d94b-4cad-b0d0-3cf8c7ccaade' width="450" />
