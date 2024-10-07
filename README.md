@@ -43,3 +43,5 @@ dotnet add package Grpc.Tools
 <br>
 <img src='https://github.com/user-attachments/assets/039759dc-d94b-4cad-b0d0-3cf8c7ccaade' width="450" />
 </br>
+
+### Автор: Бобрецов Максим Сергеевич
